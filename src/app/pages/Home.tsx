@@ -1,4 +1,4 @@
-import { Code2, Database, Award, ExternalLink } from "lucide-react";
+import { Code2, Database, Award, ExternalLink, Github } from "lucide-react";
 
 export default function Home() {
   const skills = [
@@ -9,6 +9,18 @@ export default function Home() {
     { name: "Node.js", icon: "🔧" },
     { name: "MySQL", icon: "🗄️" },
     { name: "MongoDB", icon: "🍃" },
+  ];
+
+  const projects = [
+    {
+      id: 1,
+      name: "Teraskopp OÜ",
+      description: "Professional website for a timber and forest machinery business showcasing services, equipment, and expertise in the forestry industry.",
+      image: "/images/Teraskopp.png",
+      liveUrl: "https://teraskopp3.vercel.app",
+      githubUrl: "https://github.com/Roven555/Teraskopp-3",
+      tags: ["React", "TypeScript", "Tailwind CSS"],
+    },
   ];
 
   return (
@@ -139,74 +151,92 @@ export default function Home() {
         >
           {'> Projects'}
         </h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Project 1 */}
-          <a
-            href="https://github.com/Roven555/Rakenduse-loomine"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              backgroundColor: '#1A1A1A',
-              border: '1px solid #FFB000',
-            }}
-            className="p-6 md:p-8 hover:scale-105 transition-transform backdrop-blur-sm cursor-pointer group"
-          >
-            <div className="flex items-start justify-between mb-4">
-              <div
-                style={{
-                  backgroundColor: '#FFB000',
-                  color: '#0F0F0F',
-                }}
-                className="p-3 rounded"
-              >
-                <Code2 size={28} />
-              </div>
-              <ExternalLink size={20} style={{ color: '#FFB000' }} />
-            </div>
-            <h3
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <div
+              key={project.id}
               style={{
-                color: '#FFB000',
-                fontFamily: 'Space Mono, monospace',
+                backgroundColor: '#1A1A1A',
+                border: '1px solid #FFB000',
               }}
-              className="text-lg mb-2 group-hover:opacity-80 transition-opacity"
+              className="overflow-hidden hover:scale-105 transition-transform backdrop-blur-sm group cursor-pointer"
             >
-              Movie Management App
-            </h3>
-          </a>
+              {/* Project Image */}
+              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-800 to-black">
+                <img 
+                  src={project.image} 
+                  alt={project.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform"
+                />
+              </div>
 
-          {/* Project 2 */}
-          <a
-            href="https://github.com/Roven555/ephod"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              backgroundColor: '#1A1A1A',
-              border: '1px solid #FFB000',
-            }}
-            className="p-6 md:p-8 hover:scale-105 transition-transform backdrop-blur-sm cursor-pointer group"
-          >
-            <div className="flex items-start justify-between mb-4">
-              <div
-                style={{
-                  backgroundColor: '#FFB000',
-                  color: '#0F0F0F',
-                }}
-                className="p-3 rounded"
-              >
-                <Database size={28} />
+              {/* Project Content */}
+              <div className="p-6">
+                <h3
+                  style={{
+                    color: '#FFB000',
+                    fontFamily: 'Space Mono, monospace',
+                  }}
+                  className="text-lg mb-2 group-hover:opacity-80 transition-opacity"
+                >
+                  {project.name}
+                </h3>
+                <p style={{ color: '#CCCCCC' }} className="text-sm mb-4 line-clamp-2">
+                  {project.description}
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      style={{
+                        backgroundColor: '#FFB00020',
+                        color: '#FFB000',
+                        border: '1px solid #FFB000',
+                      }}
+                      className="text-xs px-2 py-1 rounded"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Links */}
+                <div className="flex gap-3">
+                  {project.liveUrl !== "#" && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        backgroundColor: '#FFB000',
+                        color: '#0F0F0F',
+                      }}
+                      className="flex-1 flex items-center justify-center gap-2 py-2 rounded font-semibold hover:opacity-90 transition-opacity text-sm"
+                    >
+                      <ExternalLink size={16} />
+                      Live Site
+                    </a>
+                  )}
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      backgroundColor: '#FFB00020',
+                      color: '#FFB000',
+                      border: '1px solid #FFB000',
+                    }}
+                    className="flex-1 flex items-center justify-center gap-2 py-2 rounded font-semibold hover:opacity-80 transition-opacity text-sm"
+                  >
+                    <Github size={16} />
+                    GitHub
+                  </a>
+                </div>
               </div>
-              <ExternalLink size={20} style={{ color: '#FFB000' }} />
             </div>
-            <h3
-              style={{
-                color: '#FFB000',
-                fontFamily: 'Space Mono, monospace',
-              }}
-              className="text-lg mb-2 group-hover:opacity-80 transition-opacity"
-            >
-              E-commerce Store
-            </h3>
-          </a>
+          ))}
         </div>
       </section>
 
