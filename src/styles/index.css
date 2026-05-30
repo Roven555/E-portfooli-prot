@@ -1,3 +1,112 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
+
+html {
+  min-height: 100%;
+  background:
+    radial-gradient(ellipse at bottom, #18283a 0%, #090a0f 62%, #020306 100%);
+}
+
+body {
+  min-height: 100%;
+  background: transparent;
+}
+
+.app-shell {
+  position: relative;
+  overflow-x: hidden;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(255, 176, 0, 0.08), transparent 30rem),
+    radial-gradient(ellipse at bottom, rgba(27, 39, 53, 0.94) 0%, rgba(9, 10, 15, 0.98) 62%, #020306 100%);
+}
+
+.star-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.star-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(255, 176, 0, 0.08), transparent 22rem),
+    radial-gradient(circle at 15% 20%, rgba(120, 170, 255, 0.12), transparent 18rem),
+    radial-gradient(circle at 78% 74%, rgba(255, 255, 255, 0.08), transparent 16rem);
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  border-radius: 999px;
+}
+
+.stars::after {
+  content: "";
+  position: absolute;
+  top: 1800px;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  box-shadow: inherit;
+}
+
+.stars-small {
+  box-shadow:
+    92px 144px #fff, 211px 714px #fff, 328px 1102px #fff, 511px 421px #fff,
+    648px 1478px #fff, 742px 255px #fff, 884px 902px #fff, 1018px 171px #fff,
+    1162px 1277px #fff, 1328px 612px #fff, 1464px 1594px #fff, 1588px 342px #fff,
+    1724px 864px #fff, 1875px 1338px #fff, 1986px 508px #fff, 124px 1636px #fff,
+    276px 304px #fff, 439px 989px #fff, 604px 1206px #fff, 766px 73px #fff,
+    911px 1518px #fff, 1084px 697px #fff, 1225px 1008px #fff, 1396px 217px #fff,
+    1532px 1144px #fff, 1691px 156px #fff, 1844px 1041px #fff, 1952px 1701px #fff,
+    52px 824px #fff, 352px 44px #fff, 694px 642px #fff, 972px 1422px #fff,
+    1282px 82px #fff, 1514px 776px #fff, 1768px 1470px #fff;
+  animation: star-fall 50s linear infinite;
+}
+
+.stars-medium {
+  width: 2px;
+  height: 2px;
+  box-shadow:
+    154px 366px #fff, 386px 1268px #fff, 628px 116px #fff, 846px 926px #fff,
+    1078px 1516px #fff, 1342px 492px #fff, 1574px 1054px #fff, 1812px 226px #fff,
+    1964px 1428px #fff, 238px 1602px #fff, 548px 682px #fff, 782px 214px #fff,
+    1194px 1184px #fff, 1438px 166px #fff, 1666px 1398px #fff, 1902px 764px #fff;
+  animation: star-fall 95s linear infinite;
+}
+
+.stars-large {
+  width: 3px;
+  height: 3px;
+  box-shadow:
+    218px 1002px #fff, 492px 226px #fff, 758px 1476px #fff, 1042px 612px #fff,
+    1316px 1322px #fff, 1648px 384px #fff, 1888px 1118px #fff, 78px 1542px #fff,
+    624px 842px #fff, 1492px 1686px #fff;
+  animation: star-fall 145s linear infinite;
+}
+
+@keyframes star-fall {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-1800px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stars {
+    animation: none;
+  }
+}

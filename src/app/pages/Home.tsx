@@ -146,8 +146,8 @@ export default function Home() {
       `}</style>
 
       {/* Hero Section */}
-      <section className="mb-16 md:mb-24">
-        <div className="mb-6">
+      <section className="min-h-[68vh] md:min-h-[78vh] mb-16 md:mb-24 flex items-center">
+        <div className="mb-6 max-w-5xl">
           <h1
             style={{
               fontFamily: 'Space Mono, monospace',

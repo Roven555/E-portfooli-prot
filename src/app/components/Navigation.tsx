@@ -19,7 +19,7 @@ export default function Navigation() {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden md:block border-b" style={{ borderColor: '#FFB000' }}>
+      <nav className="relative z-20 hidden md:block border-b backdrop-blur-md" style={{ borderColor: '#FFB000', backgroundColor: 'rgba(5, 6, 12, 0.72)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div style={{ fontFamily: 'Space Mono, monospace', color: '#FFB000' }} className="text-xl">
@@ -45,7 +45,7 @@ export default function Navigation() {
       </nav>
 
       {/* Mobile Navigation */}
-      <nav className="md:hidden border-b" style={{ borderColor: '#FFB000' }}>
+      <nav className="relative z-20 md:hidden border-b backdrop-blur-md" style={{ borderColor: '#FFB000', backgroundColor: 'rgba(5, 6, 12, 0.72)' }}>
         <div className="px-4">
           <div className="flex justify-between items-center h-16">
             <div style={{ fontFamily: 'Space Mono, monospace', color: '#FFB000' }} className="text-lg">
